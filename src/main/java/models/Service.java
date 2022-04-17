@@ -15,11 +15,11 @@ import java.util.ArrayList;
 public class Service {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id")
+    @Column(name = "service_id")
     private int id;
-    @Column(name = "type_of_service")
+    @Column(name = "service_type")
     private String typeOfService;
-    @Column(name = "price")
+    @Column(name = "service_price")
     private int price;
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Orders> orders;

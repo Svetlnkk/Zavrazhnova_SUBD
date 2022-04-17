@@ -15,12 +15,13 @@ import java.util.List;
 public class Warehouse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id")
+    @Column(name = "wh_id")
     private int id;
-    @Column(name = "numb_of_details")
-    private int numbOfDetails;
-    @Column(name = "numb_of_equipment")
+    @Column(name = "numb_of_repairedequipment")
     private int numbOfEquipment;
+    @Column(name = "numb_details")
+    private int numbOfDetails;
+
     @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Master> master;
     @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -31,6 +32,6 @@ public class Warehouse {
     }
     @Override
     public String toString() {
-        return String.format("\nid: %d || iмя: %s || Фамилия: %s" ,  id, numbOfDetails, numbOfEquipment);
+        return String.format("\nid: %d || Количество техники: %s || Количество деталей: %s" ,  id, numbOfEquipment, numbOfDetails);
     }
 }

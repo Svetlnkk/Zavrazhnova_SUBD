@@ -16,11 +16,11 @@ import java.util.List;
 public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id")
+    @Column(name = "customer_id")
     private int id;
     @Column(name = "customer_name")
     private String customerName;
-    @Column(name = "phone_numb")
+    @Column(name = "customer_phone")
     private int phoneNumb;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Orders> orders;

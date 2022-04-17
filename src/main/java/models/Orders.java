@@ -18,23 +18,24 @@ import javax.persistence.*;
 public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id")
+    @Column(name = "orders_id")
     private int id;
+    @Column(name = "order_date")
+    private Date orderDate;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "service_id")
+    @JoinColumn(name = "id_service")
     private Service service;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "master_id")
     private Master master;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "id_customer")
     private Customer customer;
-    @Column(name = "order_date")
-    private Date orderDate;
+
     @Column(name = "price")
     private int price;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "detail_id")
+    @JoinColumn(name = "id_detail")
     private Details detail;
     public Orders(Service service, Master master, Customer customer, Date orderDate, int price, Details detail){
         this.service=service;
@@ -46,7 +47,7 @@ public class Orders {
     }
     @Override
     public String toString() {
-        return String.format("\nid: %d || услуга: %s || мастер: %s || заказчик: %s || дата: %s || цена: %s || деталь: %s",
-                id, service, master, customer, orderDate, price, detail);
+        return String.format("\nid: %d || дата: %s || услуга: %s || мастер: %s || заказчик: %s ||  цена: %s || деталь: %s",
+                id,orderDate, service, master, customer,  price, detail);
     }
 }

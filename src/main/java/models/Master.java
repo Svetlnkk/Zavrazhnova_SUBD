@@ -16,15 +16,15 @@ import javax.persistence.*;
 public class Master {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id")
+    @Column(name = "id_master")
     private int id;
     @Column(name = "master_name")
     private String masterName;
-    @Column(name = "salary")
-    private int salary;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "warehouse_id")
+    @JoinColumn(name = "wh_numb")
     private Warehouse warehouse;
+    @Column(name = "master_salary")
+    private int salary;
     @OneToMany(mappedBy = "master", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Orders> orders;
 
@@ -38,6 +38,6 @@ public class Master {
 
     @Override
     public String toString() {
-        return String.format("\nid: %d || Мастер: %s || Зарплата: %s || Склад: %s", id, masterName, salary, warehouse.getId());
+        return String.format("\nid: %d || Мастер: %s || Склад: %s || Зарплата: %s ", id, masterName, warehouse.getId(), salary);
     }
 }

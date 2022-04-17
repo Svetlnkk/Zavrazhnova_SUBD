@@ -16,16 +16,16 @@ import javax.persistence.*;
 public class Details {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id")
+    @Column(name = "id_detail")
     private int id;
     @Column(name = "detail_type")
     private String detailType;
     @Column(name = "numb_of_detail")
     private int numbOfDetail;
-    @Column(name = "detail_price")
+    @Column(name = "price_detail")
     private int detailPrice;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "warehouse_id")
+    @JoinColumn(name = "wh_numb")
     private Warehouse warehouse;
     @OneToMany(mappedBy = "details", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Orders> orders;
