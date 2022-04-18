@@ -95,7 +95,7 @@ public class WarehouseLogic {
             case 2:
                 System.out.println("Введите количество деталей");
                 int numbOfDetail = scanner.nextInt();
-                warehouse = session.createQuery("SELECT a from Warehouse a where numbOfDetail = \'" + numbOfDetail + "\'", Warehouse.class).getResultList();
+                warehouse = session.createQuery("SELECT a from Warehouse a where numbOfDetails = \'" + numbOfDetail + "\'", Warehouse.class).getResultList();
                 break;
 
         }

@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.List;
 import java.util.ArrayList;
 @Entity
-@Table(name = "service", schema = "public", catalog = "lab4")
+@Table(name = "service", schema = "public", catalog = "test")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

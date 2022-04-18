@@ -95,7 +95,7 @@ public class CustomerLogic {
             case 2:
                 System.out.println("Введите номер телефона");
                 int phoneNumb = scanner.nextInt();
-                customer = session.createQuery("SELECT a from Customer a where salary = \'" + phoneNumb + "\'", Customer.class).getResultList();
+                customer = session.createQuery("SELECT a from Customer a where phoneNumb = \'" + phoneNumb + "\'", Customer.class).getResultList();
                 break;
         }
         System.out.println(customer);

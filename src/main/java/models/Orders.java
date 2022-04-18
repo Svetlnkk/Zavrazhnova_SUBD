@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "orders", schema = "public", catalog = "lab4")
+@Table(name = "orders", schema = "public", catalog = "test")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

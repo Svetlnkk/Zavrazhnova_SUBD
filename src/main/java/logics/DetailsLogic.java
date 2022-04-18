@@ -117,7 +117,7 @@ public class DetailsLogic {
             case 4:
                 System.out.println("Введите номер склада");
                 int idWarehouse = scanner.nextInt();
-                detail = session.createQuery("SELECT a from Details a where idWarehouse = " + idWarehouse , Details.class).getResultList();
+                detail = session.createQuery("SELECT a from Details a where warehouse = " + idWarehouse , Details.class).getResultList();
                 break;
         }
         System.out.println(detail);

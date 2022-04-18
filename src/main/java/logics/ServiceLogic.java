@@ -95,7 +95,7 @@ public class ServiceLogic {
             case 2:
                 System.out.println("Введите цену");
                 int price = scanner.nextInt();
-                service = session.createQuery("SELECT a from Service a where salary = \'" + price + "\'", Service.class).getResultList();
+                service = session.createQuery("SELECT a from Service a where price = \'" + price + "\'", Service.class).getResultList();
                 break;
         }
         System.out.println(service);

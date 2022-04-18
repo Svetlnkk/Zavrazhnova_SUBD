@@ -118,17 +118,17 @@ public class OrdersLogic {
             case 1:
                 System.out.println("Введите номер услуги");
                 int idService = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where idService = " + idService, Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where service = " + idService, Orders.class).getResultList();
                 break;
             case 2:
                 System.out.println("Введите номер мастера");
                 int idMaster = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where idMaster = " + idMaster, Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where master = " + idMaster, Orders.class).getResultList();
                 break;
             case 3:
                 System.out.println("Введите номер заказчика");
                 int idCustomer = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where idCustomer = " + idCustomer, Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where customer = " + idCustomer, Orders.class).getResultList();
                 break;
             case 4:
                 System.out.println("Введите дату заказа");
@@ -146,7 +146,7 @@ public class OrdersLogic {
             case 6:
                 System.out.println("Введите номер детали");
                 int idDetail = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where idDetail = " + idDetail, Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where detail = " + idDetail, Orders.class).getResultList();
                 break;
         }
         System.out.println(order);
