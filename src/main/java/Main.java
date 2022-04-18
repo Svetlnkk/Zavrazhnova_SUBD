@@ -26,6 +26,7 @@ public class Main {
             System.out.println("Введите 5 для работы с услугой");
             System.out.println("Введите 6 для работы со складами");
             System.out.println("Введите 7 для выхода");
+            System.out.println("Введите 8 для выхода");
 
             Scanner scanner = new Scanner(System.in);
             int numb = scanner.nextInt();
@@ -57,6 +58,10 @@ public class Main {
                     break;
                 case 7:
                     isWork = false;
+                    break;
+                case 8:
+                    MasterOrderLogic masterOrderLogic=new MasterOrderLogic();
+                    masterOrderLogic.work(sessionFactory);
                     break;
             }
         }

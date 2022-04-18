@@ -20,7 +20,7 @@ public class Orders {
     @Id
     @Column(name = "orders_id")
     private int id;
-    @Column(name = "order_date")
+    @Column(name = "date_order")
     private Date orderDate;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_service")
@@ -33,11 +33,11 @@ public class Orders {
     private Customer customer;
 
     @Column(name = "price")
-    private int price;
+    private Integer price;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_detail")
     private Details detail;
-    public Orders(Service service, Master master, Customer customer, Date orderDate, int price, Details detail){
+    public Orders(Service service, Master master, Customer customer, Date orderDate, Integer price, Details detail){
         this.service=service;
         this.master=master;
         this.customer=customer;

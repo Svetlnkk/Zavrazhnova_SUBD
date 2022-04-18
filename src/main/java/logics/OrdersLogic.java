@@ -51,7 +51,7 @@ public class OrdersLogic {
         java.util.Date myDate = new java.util.Date(orderDate);
         java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
         System.out.println("Введите стоимость заказа");
-        int price = scanner.nextInt();
+        Integer price = scanner.nextInt();
         System.out.println("Введите номер детали");
         int idDetail = scanner.nextInt();
 
@@ -81,7 +81,7 @@ public class OrdersLogic {
         java.util.Date myDate = new java.util.Date(orderDate);
         java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
         System.out.println("Введите стоимость заказа");
-        int price = scanner.nextInt();
+        Integer price = scanner.nextInt();
         System.out.println("Введите номер детали");
         int idDetail = scanner.nextInt();
 
@@ -140,7 +140,7 @@ public class OrdersLogic {
                 break;
             case 5:
                 System.out.println("Введите стоимость");
-                int price = scanner.nextInt();
+                Integer price = scanner.nextInt();
                 order = session.createQuery("SELECT a from Orders a where price = \'" + price + "\'", Orders.class).getResultList();
                 break;
             case 6:

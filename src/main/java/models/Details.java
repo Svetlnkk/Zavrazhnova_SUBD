@@ -27,7 +27,7 @@ public class Details {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wh_numb")
     private Warehouse warehouse;
-    @OneToMany(mappedBy = "details", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "detail", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Orders> orders;
     public Details(String detailType, int numbOfDetail, int detailPrice, Warehouse warehouse){
         this.detailType=detailType;
