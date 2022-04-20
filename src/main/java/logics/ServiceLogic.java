@@ -90,12 +90,14 @@ public class ServiceLogic {
             case 1:
                 System.out.println("Введите тип услуги");
                 String typeOfService = scanner.next();
-                service = session.createQuery("SELECT a from Service a where typeOfService = \'" + typeOfService + "\'", Service.class).getResultList();
+                service = session.createQuery("SELECT a from Service a where typeOfService = \'" +
+                        typeOfService + "\'", Service.class).getResultList();
                 break;
             case 2:
                 System.out.println("Введите цену");
                 int price = scanner.nextInt();
-                service = session.createQuery("SELECT a from Service a where price = \'" + price + "\'", Service.class).getResultList();
+                service = session.createQuery("SELECT a from Service a where price = \'" + price + "\'",
+                        Service.class).getResultList();
                 break;
         }
         System.out.println(service);

@@ -102,22 +102,26 @@ public class DetailsLogic {
             case 1:
                 System.out.println("Введите тип детали");
                 String detailType = scanner.next();
-                detail = session.createQuery("SELECT a from Details a where detailType = \'" + detailType + "\'", Details.class).getResultList();
+                detail = session.createQuery("SELECT a from Details a where detailType = \'" + detailType +
+                        "\'", Details.class).getResultList();
                 break;
             case 2:
                 System.out.println("Введите количество деталей");
                 int numbOfDetail = scanner.nextInt();
-                detail = session.createQuery("SELECT a from Details a where numbOfDetail = \'" + numbOfDetail + "\'", Details.class).getResultList();
+                detail = session.createQuery("SELECT a from Details a where numbOfDetail = \'" + numbOfDetail
+                        + "\'", Details.class).getResultList();
                 break;
             case 3:
                 System.out.println("Введите цену");
                 int detailPrice = scanner.nextInt();
-                detail = session.createQuery("SELECT a from Details a where detailPrice =\'" + detailPrice + "\'", Details.class).getResultList();
+                detail = session.createQuery("SELECT a from Details a where detailPrice =\'" + detailPrice
+                        + "\'", Details.class).getResultList();
                 break;
             case 4:
                 System.out.println("Введите номер склада");
                 int idWarehouse = scanner.nextInt();
-                detail = session.createQuery("SELECT a from Details a where warehouse = " + idWarehouse , Details.class).getResultList();
+                detail = session.createQuery("SELECT a from Details a where warehouse = " + idWarehouse ,
+                        Details.class).getResultList();
                 break;
         }
         System.out.println(detail);

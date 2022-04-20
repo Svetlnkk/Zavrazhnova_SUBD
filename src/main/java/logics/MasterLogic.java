@@ -96,17 +96,20 @@ public class MasterLogic {
             case 1:
                 System.out.println("Введите имя");
                 String name = scanner.next();
-                master = session.createQuery("SELECT a from Master a where masterName = \'" + name + "\'", Master.class).getResultList();
+                master = session.createQuery("SELECT a from Master a where masterName = \'" + name + "\'",
+                        Master.class).getResultList();
                 break;
             case 2:
                 System.out.println("Введите зарплату");
                 int salary = scanner.nextInt();
-                master = session.createQuery("SELECT a from Master a where salary = \'" + salary + "\'", Master.class).getResultList();
+                master = session.createQuery("SELECT a from Master a where salary = \'" + salary + "\'",
+                        Master.class).getResultList();
                 break;
             case 3:
                 System.out.println("Введите номер склада");
                 String idWarehouse = scanner.next();
-                master = session.createQuery("SELECT a from Master a where warehouse = " + idWarehouse, Master.class).getResultList();
+                master = session.createQuery("SELECT a from Master a where warehouse = " + idWarehouse,
+                        Master.class).getResultList();
                 break;
         }
         System.out.println(master);

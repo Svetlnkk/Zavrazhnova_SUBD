@@ -26,7 +26,7 @@ public class Main {
             System.out.println("Введите 5 для работы с услугой");
             System.out.println("Введите 6 для работы со складами");
             System.out.println("Введите 7 для выхода");
-            System.out.println("Введите 8 для выхода");
+            System.out.println("Введите 8 для вывода мастеров и их заказов");
 
             Scanner scanner = new Scanner(System.in);
             int numb = scanner.nextInt();

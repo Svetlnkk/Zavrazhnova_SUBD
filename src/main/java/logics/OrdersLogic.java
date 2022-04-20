@@ -55,7 +55,8 @@ public class OrdersLogic {
         System.out.println("Введите номер детали");
         int idDetail = scanner.nextInt();
 
-        Orders order = new Orders(session.get(Service.class, idService), session.get(Master.class,idMaster), session.get(Customer.class,idCustomer), sqlDate, price, session.get(Details.class,idDetail));
+        Orders order = new Orders(session.get(Service.class, idService), session.get(Master.class,idMaster),
+                session.get(Customer.class,idCustomer), sqlDate, price, session.get(Details.class,idDetail));
         session.save(order);
     }
 
@@ -118,35 +119,41 @@ public class OrdersLogic {
             case 1:
                 System.out.println("Введите номер услуги");
                 int idService = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where service = " + idService, Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where service = " + idService,
+                        Orders.class).getResultList();
                 break;
             case 2:
                 System.out.println("Введите номер мастера");
                 int idMaster = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where master = " + idMaster, Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where master = " + idMaster,
+                        Orders.class).getResultList();
                 break;
             case 3:
                 System.out.println("Введите номер заказчика");
                 int idCustomer = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where customer = " + idCustomer, Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where customer = " + idCustomer,
+                        Orders.class).getResultList();
                 break;
             case 4:
                 System.out.println("Введите дату заказа");
                 String date = scanner.next();
                 java.util.Date myDate = new java.util.Date(date);
                 java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
-                order = session.createQuery("SELECT a from Orders a where orderDate = \'" + sqlDate + "\'", Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where orderDate = \'" + sqlDate + "\'",
+                        Orders.class).getResultList();
 
                 break;
             case 5:
                 System.out.println("Введите стоимость");
                 Integer price = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where price = \'" + price + "\'", Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where price = \'" + price + "\'",
+                        Orders.class).getResultList();
                 break;
             case 6:
                 System.out.println("Введите номер детали");
                 int idDetail = scanner.nextInt();
-                order = session.createQuery("SELECT a from Orders a where detail = " + idDetail, Orders.class).getResultList();
+                order = session.createQuery("SELECT a from Orders a where detail = " + idDetail,
+                        Orders.class).getResultList();
                 break;
         }
         System.out.println(order);

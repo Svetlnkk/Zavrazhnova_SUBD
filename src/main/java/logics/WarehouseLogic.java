@@ -50,7 +50,8 @@ public class WarehouseLogic {
     }
 
     private void read(Session session) {
-        List<Warehouse> warehouse = session.createQuery("SELECT a from Warehouse a", Warehouse.class).getResultList();
+        List<Warehouse> warehouse = session.createQuery("SELECT a from Warehouse a",
+                Warehouse.class).getResultList();
         System.out.println(warehouse);
     }
 
@@ -90,12 +91,14 @@ public class WarehouseLogic {
             case 1:
                 System.out.println("Введите количество техники");
                 int numbOfEquipment = scanner.nextInt();
-                warehouse = session.createQuery("SELECT a from Warehouse a where numbOfEquipment = \'" + numbOfEquipment + "\'", Warehouse.class).getResultList();
+                warehouse = session.createQuery("SELECT a from Warehouse a where numbOfEquipment = \'" +
+                        numbOfEquipment + "\'", Warehouse.class).getResultList();
                 break;
             case 2:
                 System.out.println("Введите количество деталей");
                 int numbOfDetail = scanner.nextInt();
-                warehouse = session.createQuery("SELECT a from Warehouse a where numbOfDetails = \'" + numbOfDetail + "\'", Warehouse.class).getResultList();
+                warehouse = session.createQuery("SELECT a from Warehouse a where numbOfDetails = \'" +
+                        numbOfDetail + "\'", Warehouse.class).getResultList();
                 break;
 
         }

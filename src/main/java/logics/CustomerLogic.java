@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 public class CustomerLogic {
     public void work(SessionFactory sessionFactory) {
-        System.out.println("Введите 1 для создания заказа");
-        System.out.println("Введите 2 для чтения заказа");
-        System.out.println("Введите 3 для изменения заказа");
-        System.out.println("Введите 4 для удаления заказа");
+        System.out.println("Введите 1 для создания заказчика");
+        System.out.println("Введите 2 для чтения заказчика");
+        System.out.println("Введите 3 для изменения заказчика");
+        System.out.println("Введите 4 для удаления заказчика");
         System.out.println("Введите 5 для фильтрации");
 
         Scanner scanner = new Scanner(System.in);
@@ -56,19 +56,28 @@ public class CustomerLogic {
 
     private void update(Session session) {
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Введите id заказчика");
         int id = scanner.nextInt();
-
-        System.out.println("Введите имя заказчика");
-        String name = scanner.next();
-        System.out.println("Введите номер телефона");
-        int phoneNumb = scanner.nextInt();
-
         Customer customer = session.get(Customer.class, id);
-        customer.setCustomerName(name);
-        customer.setPhoneNumb(phoneNumb);
-        session.save(customer);
+        System.out.println("Введите 1 для изменения по имени");
+        System.out.println("Введите 2 для изменения по номеру телефона");
+        int numb = scanner.nextInt();
+        switch (numb) {
+            case 1:
+                System.out.println("Введите имя заказчика");
+                String name = scanner.next();
+                customer.setCustomerName(name);
+                session.save(customer);
+                break;
+            case 2:
+                System.out.println("Введите номер телефона");
+                int phoneNumb = scanner.nextInt();
+                customer = session.get(Customer.class, id);
+                customer.setPhoneNumb(phoneNumb);
+                session.save(customer);
+                break;
+        }
+
     }
 
     private void delete(Session session) {
@@ -90,12 +99,14 @@ public class CustomerLogic {
             case 1:
                 System.out.println("Введите имя");
                 String name = scanner.next();
-                customer = session.createQuery("SELECT a from Customer a where customerName = \'" + name + "\'", Customer.class).getResultList();
+                customer = session.createQuery("SELECT a from Customer a where customerName = \'" + name +
+                        "\'", Customer.class).getResultList();
                 break;
             case 2:
                 System.out.println("Введите номер телефона");
                 int phoneNumb = scanner.nextInt();
-                customer = session.createQuery("SELECT a from Customer a where phoneNumb = \'" + phoneNumb + "\'", Customer.class).getResultList();
+                customer = session.createQuery("SELECT a from Customer a where phoneNumb = \'" + phoneNumb +
+                        "\'", Customer.class).getResultList();
                 break;
         }
         System.out.println(customer);
